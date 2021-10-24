@@ -1,0 +1,338 @@
+/*font-family: 'Staatliches', cursive;    fuente principal google fonts*/
+:root 
+    {
+        --Primario: #9c27b0;
+        --PrimarioOscuro: #89119d;
+        --Secundario: #ffce00;
+        --SecundarioOscuro: rgb(233,287,2);
+        --Blanco: #fff;
+        --Negro:#000;
+
+        --FuentePrincipal:  'Staatliches', cursive;
+    }
+
+/* apply a natural box layout model to all elements, but allowing components to change */
+html 
+{
+    box-sizing: border-box;
+    font-size: 62.5%;   /*de rem a px*/
+}
+*, *:before, *:after 
+{
+    box-sizing: inherit;
+}
+
+
+  /*                     GLOBALES               */
+
+body
+{
+    background-color: var(--Primario);
+    font-size: 1.6rem;
+    line-height: 1.5;
+}
+p
+{
+    font-size: 1.8rem;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--Blanco);
+}
+a
+{
+    text-decoration: none;
+}
+img
+{
+    max-width: 100%;
+    /* height: 300px;
+    width: 300px; */
+}
+.contenedor 
+{
+    max-width: 120rem;
+    margin: 0 auto;
+}
+h1 ,h2 ,h3
+{
+    text-align: center;
+    color: var(--Secundario);
+    font-family: var(--FuentePrincipal);
+}
+h1{ font-size: 4rem;}
+h2{ font-size: 3.5rem;}
+h3{ font-size: 2.4rem;}
+
+
+
+/*                                      HEADER                       */
+
+.header 
+{
+    display: flex;
+    justify-content: center;
+}
+.header__logo
+{
+    margin: 3rem 0;
+}
+
+/*                                      Navegacion                       */
+.navegacion
+{
+    background-color: var(--PrimarioOscuro);
+    padding: 1rem 0;
+    display: flex;
+    justify-content: center;
+    /* gap: 2rem;  separacion*/
+}
+.navegacion__enlace
+{
+    font-family: var(--FuentePrincipal);
+    color: var(--Blanco);
+    font-size: 3rem;
+    margin-right: 2rem;
+}
+.navegacion__enlace:last-of-type    /*coje el ultimo naav */
+{   
+    margin-right: 0;
+}
+.navegacion__enlace--activo, .navegacion__enlace:hover{ color: var(--Secundario);}  /*color tienda */
+
+/*                                      Grid                       */
+.grid
+{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 2rem;
+    row-gap: 2rem;
+}
+@media (min-width: 768px)
+{
+    .grid
+    {
+        grid-template-columns: repeat(3, 1fr);
+
+    }
+}
+
+
+
+/*                                      PRODUCTOS                       */
+
+.producto
+{
+    background-color: var(--PrimarioOscuro);
+    padding: 1rem;
+}
+.producto__imagen
+{
+    width: 100%;
+}
+/* .producto__informacion
+{
+
+} */
+.producto__nombre
+{
+    font-size: 2rem;
+
+}
+.producto__precio
+{
+    font-size: 1.8rem;  
+    color: var(--Secundario);
+    line-height: 1.2;
+}
+
+.producto__precio, .producto__nombre
+{
+    font-family: var(--FuentePrincipal);
+    margin: 1rem 0;
+    text-align: center;
+    
+}
+
+
+/*                                      GRAFICOS                       */
+.grafico
+{
+     min-height: 30rem;
+    /*background-repeat: no-repeat;
+    background-size: cover;  llena todo el espacio disponible */
+}
+.grafico--camisas
+{
+    background-image: url(/img-modajuvenil/niña-publicitaria.png);
+    background-repeat: no-repeat;
+    background-size: cover;  /*llena todo el espacio disponible*/
+    grid-row: 2 / 3;    /*va del 2 al 3*/
+    grid-column: 1/3;   /*y que se extienda del 1 al 3*/
+}
+.grafico--node
+ {  
+    background-image: url(/img-modajuvenil/medios-de-pago.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    grid-row: 4 / 6;    /*va del 2 al 3*/
+    grid-column: 1/3;   /*y que se extienda del 1 al 3*/
+}
+
+
+
+@media (min-width: 768px)
+{
+    .grafico--node
+    {    
+        grid-row: 4 / 6;    /*va del 2 al 3*/
+        grid-column: 3/4;   /*y que se extienda del 1 al 3*/
+    }
+    
+}
+
+
+
+
+
+
+
+
+
+/* ----------------------------------------------------------------------------------------------------------------------- */
+/*                                      PAGINA NOSOTROS                       */
+/* ----------------------------------------------------------------------------------------------------------------------- */
+
+.nosotros
+{
+    display: grid;
+    grid-template-rows: repeat(2, auto);
+    padding: 1rem;
+}
+@media (min-width: 768px)
+{
+    .nosotros
+    {
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 2rem;
+    }
+}
+/* .nosotro__contenido
+{
+
+} */
+.nosotros__imagen
+{
+    grid-row: 1/2;
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+}
+@media (min-width: 768px)
+{
+     .nosotros__imagen
+     {
+        grid-column: 2/3;
+     }
+}
+/*                                      Bloques                       */
+
+
+.bloques
+{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+@media (min-width: 768px)
+{
+    .bloques
+    {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+.bloque
+{
+    text-align: center;
+}
+.bloque__titulo
+{
+    margin: 0;
+}
+
+
+/* ----------------------------------------------------------------------------------------------------------------------- */
+/*                                      PAGINA PRODUCTO                      */
+/* ----------------------------------------------------------------------------------------------------------------------- */
+
+
+
+
+@media (min-width: 768px)
+{
+    .camisa
+    {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 2rem;
+    }
+}
+.formulario
+{
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+.formulario__campo
+{
+    border-color: var(--PrimarioOscuro);
+    border-width: 1rem;
+    border-style: solid;
+    background-color: var(--Primario);
+    color: var(--Blanco);
+    font-size: 2rem;
+    font-family:Arial, Helvetica, sans-serif;
+    padding: 1rem;
+    appearance: none;
+}
+.formulario__submit
+{
+    background-color: var(--Secundario);
+    border: none;
+    font-size: 2rem;
+    font-family: var(--FuentePrincipal);
+    padding: 2rem;
+    transition: background-color .5s ease; /*transicion de boton*/
+    grid-column: 1/3;
+}
+.formulario__submit:hover
+{
+    cursor: pointer;
+    background-color: var(--SecundarioOscuro);
+}
+
+/* .producto__imagen--producto
+{
+    width: 50%;
+} */
+
+
+
+
+
+
+/*                                      secciones                       */
+/*                         para duplicar alt+pausa                       */
+
+
+
+/*                                      FOOTER                          */
+.footer{
+    background-color: var(--PrimarioOscuro);
+    padding: 1rem 0;
+    margin-top: 2rem;
+}
+.footer__texto{
+    font-family: var(--FuentePrincipal);
+    text-align: center; 
+    font-size: 2.2rem;
+}
+
